@@ -198,17 +198,17 @@ function Home() {
     },
     {
       id: "match14",
-      date: "07-Apr-26",
+      date: "08-Apr-26",
       time: "7:30 PM",
       team1: {
-        name: "Rajasthan Royals",
-        logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
+        name: "Delhi Capitals",
+        logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
       },
       team2: {
-        name: "Royal Challengers Bengaluru",
-        logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        name: "Gujarat Titans",
+        logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
       },
-      venue: "Sawai Mansingh Stadium, Jaipur",
+      venue: "Arun Jaitley Stadium, Delhi",
     },
     {
       id: "match15",

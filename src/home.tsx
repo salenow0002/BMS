@@ -76,7 +76,7 @@ function Home() {
         name: "Gujarat Titans",
         logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
       },
-      venue: "Punjab Cricket Association Stadium, Mohali",
+      venue: "PCA New Cricket Stadium, Tira",
     },
 
     {

@@ -59,7 +59,7 @@ function Home() {
       },
       team2: {
         name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/500px-Lucknow_Super_Giants_Logo.svg.png",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       venue: "Arun Jaitley Stadium, Delhi",
     },

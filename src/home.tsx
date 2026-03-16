@@ -19,7 +19,7 @@ function Home() {
         name: "Sunrisers Hyderabad",
         logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
       },
-      venue: "M. Chinnaswamy Stadium, Bangalore",
+      venue: "M. Chinnaswamy Stadium, Bengaluru",
     },
     {
       id: "match2",
@@ -122,7 +122,7 @@ function Home() {
         name: "Delhi Capitals",
         logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
       },
-      venue: "M. Chinnaswamy Stadium, Bangalore",
+      venue: "M. Chinnaswamy Stadium, Bengaluru",
     },
 
     {
@@ -264,7 +264,7 @@ function Home() {
         name: "Lucknow Super Giants",
         logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
-      venue: "M. Chinnaswamy Stadium, Bangalore",
+      venue: "M. Chinnaswamy Stadium, Bengaluru",
     },
     {
       id: "match19",
@@ -418,7 +418,7 @@ function Home() {
         name: "Gujarat Titans",
         logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
       },
-      venue: "M. Chinnaswamy Stadium, Bangalore",
+      venue: "M. Chinnaswamy Stadium, Bengaluru",
     },
     {
       id: "match30",
@@ -558,7 +558,7 @@ function Home() {
         name: "Chennai Super Kings",
         logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
       },
-      venue: "M. Chinnaswamy Stadium, Bangalore",
+      venue: "M. Chinnaswamy Stadium, Bengaluru",
     },
     {
       id: "match40",
@@ -684,7 +684,7 @@ function Home() {
         name: "Punjab Kings",
         logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
       },
-      venue: "M. Chinnaswamy Stadium, Bangalore",
+      venue: "M. Chinnaswamy Stadium, Bengaluru",
     },
     {
       id: "match49",

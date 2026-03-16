@@ -145,7 +145,7 @@ function Home() {
       time: "7:30 PM",
       team1: {
         name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       team2: {
         name: "Punjab Kings",
@@ -215,7 +215,7 @@ function Home() {
       time: "7:30 PM",
       team1: {
         name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       team2: {
         name: "Gujarat Titans",
@@ -261,7 +261,7 @@ function Home() {
       },
       team2: {
         name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       venue: "M. Chinnaswamy Stadium, Bangalore",
     },
@@ -355,7 +355,7 @@ function Home() {
       time: "7:30 PM",
       team1: {
         name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       team2: {
         name: "Sunrisers Hyderabad",
@@ -429,7 +429,7 @@ function Home() {
       },
       team2: {
         name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       venue: "Rajiv Gandhi International Stadium, Hyderabad",
     },
@@ -499,7 +499,7 @@ function Home() {
       },
       team2: {
         name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       venue: "Rajiv Gandhi International Stadium, Hyderabad",
     },
@@ -565,7 +565,7 @@ function Home() {
       time: "7:30 PM",
       team1: {
         name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       team2: {
         name: "Rajasthan Royals",
@@ -625,7 +625,7 @@ function Home() {
       },
       team2: {
         name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       venue: "Eden Gardens, Kolkata",
     },
@@ -691,7 +691,7 @@ function Home() {
       time: "7:30 PM",
       team1: {
         name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/Lucknow_Super_Giants_IPL_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       team2: {
         name: "Gujarat Titans",

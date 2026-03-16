@@ -28,14 +28,18 @@ function SeatSelection() {
   const stadiumMaps = {
     "Narendra Modi Stadium, Ahmedabad": "https://www.xchangetickets.com/seatingplans/venue_1030.jpg",
     "Wankhede Stadium, Mumbai": "https://t20slam.com/wp-content/uploads/2020/03/Wankhede-stadium-map-with-seat-numbers.jpg",
-    "M. Chinnaswamy Stadium, Bangalore": "https://cdn.shopify.com/s/files/1/0278/4565/6649/files/WhatsApp_Image_2023-10-02_at_18.06.17.webp",
+    "M. Chinnaswamy Stadium, Bengaluru": "https://cdn.shopify.com/s/files/1/0278/4565/6649/files/WhatsApp_Image_2023-10-02_at_18.06.17.webp",
     "Eden Gardens, Kolkata": "https://ipltickets.in/wp-content/uploads/2024/02/kolkata-eden-gardens-stadium-stands-pavilions-seat-chart.jpg",
     "MA Chidambaram Stadium, Chennai": "https://ultimatecricketguru.com/wp-content/uploads/2023/09/m-chinnaswamy-stadium-bangalore-seating-plan.webp",
     "Arun Jaitley Stadium, Delhi": "https://www.xchangetickets.co.uk/seatingplans/venue_1154.jpg",
     "Rajiv Gandhi International Cricket Stadium, Hyderabad": "https://assets.isu.pub/document-structure/230315054443-5af6010b1e320f4688b2f873e7154667/v1/4e43fccb3dabbcc2559d4ca250350baf.jpeg",
     "Sawai Mansingh Stadium, Jaipur": "https://indiaongo.in/wp-content/uploads/2018/04/sms-stadium-jaipur-seating-layout-arrangements.png",
     "BRSABV Ekana Cricket Stadium, Lucknow": "https://indiaongo.in/wp-content/uploads/2022/09/ekana-stadium-seating-map-lucknow.jpg",
-    "Mullanpur Stadium, New Chandigarh, Punjab": "https://indiaongo.in/wp-content/uploads/2024/03/new-pca-stadium-mullanpur-mohali.jpeg"
+    "Mullanpur Stadium, New Chandigarh, Punjab": "https://indiaongo.in/wp-content/uploads/2024/03/new-pca-stadium-mullanpur-mohali.jpeg",
+    "PCA New Cricket Stadium, Tira": "https://indiaongo.in/wp-content/uploads/2024/03/new-pca-stadium-mullanpur-mohali.jpeg",
+    "Barsapara Stadium, Guwahati": "https://indiaongo.in/wp-content/uploads/2017/10/aca-cricket-stadium-barsapara-guwahati-assam-layout.jpg",
+    "Ekana Cricket Stadium B Ground, Ardonamau": "https://ultimatecricketguru.com/wp-content/uploads/2023/10/Ekana-Cricket-Stadium.jpg",
+    
   };
   
   // This would come from your match data

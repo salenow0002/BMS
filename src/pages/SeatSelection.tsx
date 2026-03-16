@@ -36,9 +36,9 @@ function SeatSelection() {
     "Sawai Mansingh Stadium, Jaipur": "https://indiaongo.in/wp-content/uploads/2018/04/sms-stadium-jaipur-seating-layout-arrangements.png",
     "BRSABV Ekana Cricket Stadium, Lucknow": "https://indiaongo.in/wp-content/uploads/2022/09/ekana-stadium-seating-map-lucknow.jpg",
     "Mullanpur Stadium, New Chandigarh, Punjab": "https://indiaongo.in/wp-content/uploads/2024/03/new-pca-stadium-mullanpur-mohali.jpeg",
-    "PCA New Cricket Stadium, Tira": "https://indiaongo.in/wp-content/uploads/2024/03/new-pca-stadium-mullanpur-mohali.jpeg",
-    "Barsapara Stadium, Guwahati": "https://indiaongo.in/wp-content/uploads/2017/10/aca-cricket-stadium-barsapara-guwahati-assam-layout.jpg",
-    "Ekana Cricket Stadium B Ground, Ardonamau": "https://ultimatecricketguru.com/wp-content/uploads/2023/10/Ekana-Cricket-Stadium.jpg",
+    "PCA Stadium, New Chandigarh": "https://indiaongo.in/wp-content/uploads/2024/03/new-pca-stadium-mullanpur-mohali.jpeg",
+    "ACA Stadium, Guwahati": "https://indiaongo.in/wp-content/uploads/2017/10/aca-cricket-stadium-barsapara-guwahati-assam-layout.jpg",
+    "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow": "https://ultimatecricketguru.com/wp-content/uploads/2023/10/Ekana-Cricket-Stadium.jpg",
     
   };
   

@@ -806,7 +806,7 @@ function Home() {
         {/* Hero Image */}
         <div className="w-full">
           <img
-            src="https://www.tribuneindia.com/ipl_assets/banner-mobile.png"
+            src="https://i.ibb.co/DHXW4W8q/Gemini-Generated-Image-gzwzbrgzwzbrgzwz.png"
             alt="IPL 2026"
             className="w-full"
           />

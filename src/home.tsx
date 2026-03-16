@@ -122,7 +122,7 @@ function Home() {
         name: "Delhi Capitals",
         logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
       },
-      venue: "M. Chinnaswamy Stadium, Bengaluru",
+      venue: "Arun Jaitley Stadium, Delhi",
     },
 
     {

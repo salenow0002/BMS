@@ -37,7 +37,7 @@ function Home() {
     },
     {
       id: "match3",
-      date: "29-Mar-26",
+      date: "30-Mar-26",
       time: "7:30 PM",
       team1: {
         name: "Rajasthan Royals",

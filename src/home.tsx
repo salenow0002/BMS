@@ -780,7 +780,7 @@ function Home() {
 
   // Convert date strings to Date objects for comparison
   const upcomingMatches = matches.filter(match => {
-    const matchDate = new Date(match.date + ", 2025");
+    const matchDate = new Date(match.date + ", 2026");
     return matchDate >= todayStart;
   });
 
@@ -807,7 +807,7 @@ function Home() {
         <div className="w-full">
           <img
             src="https://www.tribuneindia.com/ipl_assets/banner-mobile.png"
-            alt="IPL 2025"
+            alt="IPL 2026"
             className="w-full"
           />
         </div>
@@ -815,12 +815,12 @@ function Home() {
         {/* Event Details */}
         <div className="px-4 py-6">
           <h1 className="text-2xl font-bold text-[#333333] mb-4">
-            INDIA - Indian Premier League 2025
+            INDIA - Indian Premier League 2026
           </h1>
 
           <div className="flex items-center gap-2 mb-2">
             <Calendar className="text-[#eb4e62] w-5 h-5" />
-            <span className="text-[#666666]">Sat 22 March 2025 Onwards</span>
+            <span className="text-[#666666]">Sat 22 March 2026 Onwards</span>
           </div>
 
           <div className="flex items-center gap-2 mb-6">

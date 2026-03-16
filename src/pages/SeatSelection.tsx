@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, ArrowLeft, Minus, Plus } from 'lucide-react';
 import { useParams, useLocation, Link, useNavigate } from 'react-router-dom';
 
@@ -25,6 +25,7 @@ function SeatSelection() {
   const [selectedTicketType, setSelectedTicketType] = useState<string | null>(null);
   const [selectionSource, setSelectionSource] = useState<'grid' | 'buttons' | null>(null);
   const [quantity, setQuantity] = useState(1);
+  
   const stadiumMaps = {
     "Narendra Modi Stadium, Ahmedabad": "https://www.xchangetickets.com/seatingplans/venue_1030.jpg",
     "Wankhede Stadium, Mumbai": "https://t20slam.com/wp-content/uploads/2020/03/Wankhede-stadium-map-with-seat-numbers.jpg",
@@ -34,12 +35,9 @@ function SeatSelection() {
     "Arun Jaitley Stadium, Delhi": "https://www.xchangetickets.co.uk/seatingplans/venue_1154.jpg",
     "Rajiv Gandhi International Stadium, Hyderabad": "https://assets.isu.pub/document-structure/230315054443-5af6010b1e320f4688b2f873e7154667/v1/4e43fccb3dabbcc2559d4ca250350baf.jpeg",
     "Sawai Mansingh Stadium, Jaipur": "https://indiaongo.in/wp-content/uploads/2018/04/sms-stadium-jaipur-seating-layout-arrangements.png",
-    "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow": "https://indiaongo.in/wp-content/uploads/2022/09/ekana-stadium-seating-map-lucknow.jpg",
-    "Mullanpur Stadium, New Chandigarh, Punjab": "https://indiaongo.in/wp-content/uploads/2024/03/new-pca-stadium-mullanpur-mohali.jpeg",
-    "PCA Stadium, New Chandigarh": "https://indiaongo.in/wp-content/uploads/2024/03/new-pca-stadium-mullanpur-mohali.jpeg",
-    "ACA Stadium, Guwahati": "https://indiaongo.in/wp-content/uploads/2017/10/aca-cricket-stadium-barsapara-guwahati-assam-layout.jpg",
     "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow": "https://ultimatecricketguru.com/wp-content/uploads/2023/10/Ekana-Cricket-Stadium.jpg",
-    
+    "Mullanpur Stadium, New Chandigarh, Punjab": "https://indiaongo.in/wp-content/uploads/2024/03/new-pca-stadium-mullanpur-mohali.jpeg",
+    "ACA Stadium, Guwahati": "https://indiaongo.in/wp-content/uploads/2017/10/aca-cricket-stadium-barsapara-guwahati-assam-layout.jpg",
   };
   
   // This would come from your match data
@@ -58,7 +56,11 @@ function SeatSelection() {
     venue: "Narendra Modi Stadium, Ahmedabad, Gujarat",
   };
 
-  // First, let's define a single source of truth for ticket types
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Upper grid ticket types
   const ticketTypes = [
     { id: 'general', name: 'General Stand', price: 999, available: 85 },
@@ -70,7 +72,6 @@ function SeatSelection() {
     { id: 'skybox', name: 'Skybox/Lounge', price: 1700, available: 30 },
     { id: 'premium-plus', name: 'Premium Plus', price: 1500, available: 60 },
     { id: 'executive', name: 'Executive Lounge', price: 999, available: 40 },
-    { id: 'executiveplus', name: 'Executive Plus', price: 1500, available: 40 },
   ];
   
   // Bottom ticket types with different prices
@@ -86,11 +87,9 @@ function SeatSelection() {
 
   const handleTicketTypeSelect = (id: string) => {
     if (selectionSource === 'buttons' && id !== selectedTicketType) {
-      // If previously selected from buttons and now selecting a different type from grid
       setSelectionSource('grid');
       setSelectedTicketType(id);
     } else if (selectionSource !== 'buttons') {
-      // If not previously selected from buttons or selecting same type
       setSelectionSource('grid');
       setSelectedTicketType(id);
     }
@@ -98,11 +97,9 @@ function SeatSelection() {
 
   const handleBottomTicketSelect = (id: string) => {
     if (selectionSource === 'grid' && id !== selectedTicketType) {
-      // If previously selected from grid and now selecting a different type from buttons
       setSelectionSource('buttons');
       setSelectedTicketType(id);
     } else if (selectionSource !== 'grid') {
-      // If not previously selected from grid or selecting same type
       setSelectionSource('buttons');
       setSelectedTicketType(id === selectedTicketType ? null : id);
     }
@@ -118,20 +115,16 @@ function SeatSelection() {
     }
   };
 
-  // Find the selected ticket based on ID and selection source
   const selectedTicket = selectionSource === 'grid' 
     ? ticketTypes.find(ticket => ticket.id === selectedTicketType)
     : bottomTicketTypes.find(ticket => ticket.id === selectedTicketType);
     
   const totalPrice = selectedTicket ? selectedTicket.price * quantity : 0;
   
-  // Find the description for the selected bottom ticket
   const selectedBottomTicket = bottomTicketTypes.find(ticket => ticket.id === selectedTicketType);
 
-  // Move the handleProceedToBooking function here, outside of the JSX
   const handleProceedToBooking = () => {
     if (selectedTicket) {
-      // Prepare booking data to pass to the confirmation page
       const bookingData = {
         match: {
           team1: matchData.team1.name,
@@ -145,7 +138,6 @@ function SeatSelection() {
         quantity: quantity
       };
       
-      // Navigate to booking confirmation page with the booking data
       navigate('/booking-confirmation', { state: { bookingData } });
     }
   };
@@ -154,7 +146,7 @@ function SeatSelection() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-        <div className="px-4 py-3 flex items-center">
+        <div className="px-4 py-3 flex items-center border-b">
           <Link to="/" className="mr-4">
             <ArrowLeft className="w-5 h-5 text-[#333333]" />
           </Link>
@@ -162,58 +154,76 @@ function SeatSelection() {
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="pt-14 pb-24">
+      {/* Main Content - Increased top padding */}
+      <main className="pt-20 pb-24">
         {/* Match Info Card */}
-        <div className="bg-white p-4 mb-4">
+        <div className="bg-white p-4 mb-4 shadow-sm">
           <div className="flex justify-between items-center">
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 mb-1">
+            <div className="flex flex-col items-center flex-1">
+              <div className="w-16 h-16 mb-2">
                 <img 
                   src={matchData.team1.logo}
                   alt={matchData.team1.name}
                   className="w-full h-full object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "https://via.placeholder.com/64?text=Team1";
+                  }}
                 />
               </div>
-              <span className="text-xs text-center">{matchData.team1.name}</span>
+              <span className="text-xs text-center font-medium">{matchData.team1.name}</span>
             </div>
 
-            <div className="text-sm font-bold">VS</div>
+            <div className="text-sm font-bold px-2">VS</div>
 
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 mb-1">
+            <div className="flex flex-col items-center flex-1">
+              <div className="w-16 h-16 mb-2">
                 <img 
                   src={matchData.team2.logo}
                   alt={matchData.team2.name}
                   className="w-full h-full object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "https://via.placeholder.com/64?text=Team2";
+                  }}
                 />
               </div>
-              <span className="text-xs text-center">{matchData.team2.name}</span>
+              <span className="text-xs text-center font-medium">{matchData.team2.name}</span>
             </div>
           </div>
 
-          <div className="mt-3 flex items-center gap-2 text-xs text-gray-600">
-            <Calendar className="text-[#eb4e62] w-4 h-4" />
-            <span>{matchData.date}, {matchData.time}</span>
-          </div>
+          <div className="mt-4 pt-3 border-t border-gray-100">
+            <div className="flex items-center gap-2 text-xs text-gray-600 mb-2">
+              <Calendar className="text-[#eb4e62] w-4 h-4 flex-shrink-0" />
+              <span>{matchData.date}, {matchData.time}</span>
+            </div>
 
-          <div className="mt-1 flex items-center gap-2 text-xs text-gray-600">
-            <MapPin className="text-[#eb4e62] w-4 h-4" />
-            <span>{matchData.venue}</span>
+            <div className="flex items-center gap-2 text-xs text-gray-600">
+              <MapPin className="text-[#eb4e62] w-4 h-4 flex-shrink-0" />
+              <span className="line-clamp-2">{matchData.venue}</span>
+            </div>
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="bg-white mb-4">
-          <div className="flex border-b">
+        <div className="bg-white mb-4 shadow-sm">
+          <div className="flex">
             <button 
-              className={`flex-1 py-3 text-center ${activeTab === 'map' ? 'border-b-2 border-[#eb4e62] text-[#eb4e62] font-medium' : 'text-gray-600'}`}
+              className={`flex-1 py-3 text-center transition-colors ${
+                activeTab === 'map' 
+                  ? 'border-b-2 border-[#eb4e62] text-[#eb4e62] font-medium' 
+                  : 'text-gray-600'
+              }`}
               onClick={() => setActiveTab('map')}
             >
               Stadium Map
             </button>
             <button 
-              className={`flex-1 py-3 text-center ${activeTab === 'tickets' ? 'border-b-2 border-[#eb4e62] text-[#eb4e62] font-medium' : 'text-gray-600'}`}
+              className={`flex-1 py-3 text-center transition-colors ${
+                activeTab === 'tickets' 
+                  ? 'border-b-2 border-[#eb4e62] text-[#eb4e62] font-medium' 
+                  : 'text-gray-600'
+              }`}
               onClick={() => setActiveTab('tickets')}
             >
               Ticket Types
@@ -223,7 +233,7 @@ function SeatSelection() {
 
         {/* Tab Content */}
         {activeTab === 'map' ? (
-          <div className="bg-white p-4 mb-4">
+          <div className="bg-white p-4 mb-4 shadow-sm">
             <h2 className="text-base font-semibold mb-1">Select a section from the stadium map</h2>
             <p className="text-xs text-gray-600 mb-4">Click on a section to select your preferred seating area</p>
             
@@ -232,16 +242,15 @@ function SeatSelection() {
               <p className="text-xs text-gray-600">Venue: {matchData.venue}</p>
             </div>
             
-
             {/* Stadium Map */}
-            <div className="relative w-full aspect-square mb-6">
+            <div className="relative w-full aspect-square mb-6 bg-gray-100 rounded-lg overflow-hidden">
               <img 
-                src={stadiumMaps[matchData.venue as keyof typeof stadiumMaps] || "/src/img/stadium-map.png"}
+                src={stadiumMaps[matchData.venue as keyof typeof stadiumMaps] || "/api/placeholder/400/400"}
                 alt={`${matchData.venue} Map`}
                 className="w-full h-full object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = "/src/img/stadium-map.png"; // Fallback to default stadium map
+                  target.src = "/api/placeholder/400/400";
                 }}
               />
             </div>
@@ -263,20 +272,25 @@ function SeatSelection() {
             </div>
           </div>
         ) : (
-          <div className="bg-white p-4 mb-4">
+          <div className="bg-white p-4 mb-4 shadow-sm">
             <h2 className="text-base font-semibold mb-1">Select a ticket type</h2>
             <p className="text-xs text-gray-600 mb-4">Choose from our available ticket categories</p>
             
             {/* Ticket Grid */}
-            <div className="grid grid-cols-3 gap-2 mb-6">
-              {ticketTypes.slice(0, 9).map(ticket => (
+            <div className="grid grid-cols-3 gap-3 mb-6">
+              {ticketTypes.map(ticket => (
                 <div 
                   key={ticket.id}
-                  className={`border rounded p-2 ${selectedTicketType === ticket.id && selectionSource === 'grid' ? 'border-[#eb4e62] bg-red-50' : 'border-gray-200'}`}
+                  className={`border rounded-lg p-3 cursor-pointer transition-all ${
+                    selectedTicketType === ticket.id && selectionSource === 'grid' 
+                      ? 'border-[#eb4e62] bg-red-50 ring-1 ring-[#eb4e62]' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
                   onClick={() => handleTicketTypeSelect(ticket.id)}
                 >
-                  <div className="text-[#eb4e62] font-medium text-sm mb-1">Price: ₹{ticket.price}</div>
-                  <div className="text-xs text-gray-600 mb-1">{ticket.available} seats available</div>
+                  <div className="text-[#eb4e62] font-bold text-sm mb-1">₹{ticket.price}</div>
+                  <div className="text-xs font-medium mb-1">{ticket.name}</div>
+                  <div className="text-xs text-gray-500">{ticket.available} seats</div>
                 </div>
               ))}
             </div>
@@ -284,51 +298,57 @@ function SeatSelection() {
         )}
 
         {/* Booking Summary */}
-        <div className="bg-white p-4 mb-4">
+        <div className="bg-white p-4 mb-4 shadow-sm">
           <h2 className="text-base font-semibold mb-4">Booking Summary</h2>
           
           <div className="mb-4">
-            <p className="text-sm mb-2">Ticket Type:</p>
-            <div className="grid grid-cols-2 gap-2 mb-4">
+            <p className="text-sm font-medium mb-3">Ticket Type:</p>
+            <div className="grid grid-cols-2 gap-3 mb-4">
               {bottomTicketTypes.map(ticket => (
                 <button 
                   key={ticket.id}
-                  className={`py-2 text-center text-sm rounded border ${selectedTicketType === ticket.id && selectionSource === 'buttons' ? 'bg-blue-50 border-blue-300' : 'border-gray-300'}`}
+                  className={`py-3 px-2 text-center text-sm rounded-lg border transition-all ${
+                    selectedTicketType === ticket.id && selectionSource === 'buttons' 
+                      ? 'bg-blue-50 border-blue-500 ring-1 ring-blue-500' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
                   onClick={() => handleBottomTicketSelect(ticket.id)}
                 >
-                  {ticket.name}
+                  <span className="font-medium block">{ticket.name}</span>
+                  <span className="text-xs text-gray-600">₹{ticket.price}</span>
                 </button>
               ))}
             </div>
           </div>
           
           {selectedTicketType && (
-            <>
+            <div className="border-t pt-4">
               {selectedBottomTicket && selectionSource === 'buttons' && (
-                <div className="bg-blue-50 p-3 rounded mb-4 text-sm">
-                  <p>{selectedBottomTicket.name} – {selectedBottomTicket.description}</p>
+                <div className="bg-blue-50 p-4 rounded-lg mb-4 text-sm">
+                  <p className="font-medium mb-1">{selectedBottomTicket.name}</p>
+                  <p className="text-gray-600 text-xs">{selectedBottomTicket.description}</p>
                 </div>
               )}
               
               <div className="mb-4">
-                <p className="text-sm mb-2">Price per Ticket:</p>
-                <p className="font-bold text-lg">₹{selectedTicket?.price}</p>
+                <p className="text-sm font-medium mb-2">Price per Ticket:</p>
+                <p className="font-bold text-xl">₹{selectedTicket?.price}</p>
               </div>
               
               <div className="mb-6">
-                <p className="text-sm mb-2">Quantity:</p>
+                <p className="text-sm font-medium mb-2">Quantity:</p>
                 <div className="flex items-center">
                   <button 
-                    className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-l"
+                    className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-l-lg hover:bg-gray-50 active:bg-gray-100 transition-colors"
                     onClick={decrementQuantity}
                   >
                     <Minus size={16} />
                   </button>
-                  <div className="w-12 h-8 flex items-center justify-center border-t border-b border-gray-300">
+                  <div className="w-14 h-10 flex items-center justify-center border-t border-b border-gray-300 font-medium">
                     {quantity}
                   </div>
                   <button 
-                    className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-r"
+                    className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-r-lg hover:bg-gray-50 active:bg-gray-100 transition-colors"
                     onClick={incrementQuantity}
                   >
                     <Plus size={16} />
@@ -336,20 +356,23 @@ function SeatSelection() {
                 </div>
               </div>
               
-              <div className="flex justify-between items-center mb-6">
-                <p className="font-bold">Total:</p>
-                <p className="font-bold text-[#eb4e62] text-lg">₹{totalPrice}</p>
+              <div className="flex justify-between items-center mb-6 py-3 border-t border-b">
+                <p className="font-bold text-lg">Total:</p>
+                <p className="font-bold text-[#eb4e62] text-2xl">₹{totalPrice}</p>
               </div>
               
-              {/* Add the button with the onClick handler */}
               <button 
-                className={`w-full py-3 rounded text-white font-medium ${selectedTicketType ? 'bg-[#eb4e62]' : 'bg-gray-400'}`}
+                className={`w-full py-4 rounded-lg text-white font-medium text-lg transition-all ${
+                  selectedTicketType 
+                    ? 'bg-[#eb4e62] hover:bg-[#d43b4f] active:scale-95' 
+                    : 'bg-gray-400 cursor-not-allowed'
+                }`}
                 disabled={!selectedTicketType}
                 onClick={handleProceedToBooking}
               >
                 Proceed to Booking
               </button>
-            </>
+            </div>
           )}
         </div>
       </main>

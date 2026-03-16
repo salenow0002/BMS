@@ -47,7 +47,7 @@ function Home() {
         name: "Chennai Super Kings",
         logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
       },
-      venue: "Barsapara Stadium, Guwahati",
+      venue: "ACA Stadium, Guwahati",
     },
     
     {
@@ -194,7 +194,7 @@ function Home() {
         name: "Rajasthan Royals",
         logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
       },
-      venue: "Barsapara Stadium, Guwahati",
+      venue: "ACA Stadium, Guwahati",
     },
     {
       id: "match14",

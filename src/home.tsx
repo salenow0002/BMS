@@ -152,7 +152,7 @@ function Home() {
         name: "Sunrisers Hyderabad",
         logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
       },
-      venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
+      venue: "Rajiv Gandhi International Stadium, Hyderabad",
     },
     {
       id: "match11",

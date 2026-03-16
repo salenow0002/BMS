@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { useLocation, Link } from 'react-router-dom';
 
@@ -28,14 +28,6 @@ const upiConfig = {
   googlePay: "fsv.470000099385044@icici"
 };
 
-// Add app-specific URL schemes
-// Update app schemes with proper UPI parameters
-const appSchemes = {
-  phonePe: "phonepe://pay",
-  paytm: "paytmmp://pay",
-  googlePay: "gpay://upi/pay",
-};
-
 function PaymentOptions() {
   const location = useLocation();
   const [expandedSection, setExpandedSection] = useState<string>('upi');
@@ -53,11 +45,16 @@ function PaymentOptions() {
     totalAmount: 311
   };
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? '' : section);
   };
 
-  // Add handler for UPI app clicks (move outside JSX)
+  // Add handler for UPI app clicks
   const handleUpiClick = (app: 'phonePe' | 'paytm' | 'googlePay') => {
     if (app === 'googlePay') {
       alert('Google Pay servers are currently down. Please try another payment method.');
@@ -79,7 +76,15 @@ function PaymentOptions() {
       appLink = `paytmmp://pay?pa=${upiId}&pn=BookMyShow&am=${amount}&tn=${encodeURIComponent(description)}&cu=INR`;
     }
     
+    // Fallback if app not installed
     window.location.href = appLink;
+    
+    // Optional: Add fallback timeout
+    setTimeout(() => {
+      if (document.visibilityState === 'visible') {
+        window.location.href = `upi://pay?pa=${upiId}&pn=BookMyShow&am=${amount}&tn=${encodeURIComponent(description)}&cu=INR`;
+      }
+    }, 2000);
   };
 
   const handleOtherUpiClick = () => {
@@ -92,7 +97,6 @@ function PaymentOptions() {
     window.location.href = upiLink;
   };
 
-  // Update the Other UPI APP button in JSX
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -111,23 +115,31 @@ function PaymentOptions() {
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="pt-14 pb-6 px-4">
-        <h1 className="text-lg font-bold my-4">Payment Options</h1>
+      {/* Main Content - Increased top padding for better header spacing */}
+      <main className="pt-20 pb-6 px-4">
+        <h1 className="text-lg font-bold mb-4">Payment Options</h1>
         
         <div className="mb-4">
           <div className="text-sm text-gray-600">All Payment Options</div>
         </div>
         
+        {/* Amount Summary Card - Added for better UX */}
+        <div className="bg-white rounded-md shadow-sm mb-4 p-4">
+          <div className="flex justify-between items-center">
+            <span className="text-gray-600">Total Amount:</span>
+            <span className="font-bold text-lg text-[#eb4e62]">₹{paymentData.totalAmount}</span>
+          </div>
+        </div>
+        
         {/* UPI/QR Section */}
-        <div className="bg-white rounded-md shadow-sm mb-4">
+        <div className="bg-white rounded-md shadow-sm mb-4 overflow-hidden">
           <div 
-            className="p-4 flex justify-between items-center cursor-pointer"
+            className="p-4 flex justify-between items-center cursor-pointer active:bg-gray-50"
             onClick={() => toggleSection('upi')}
           >
             <h2 className="font-medium">UPI/QR</h2>
             <svg 
-              className={`w-5 h-5 transition-transform ${expandedSection === 'upi' ? 'transform rotate-180' : ''}`} 
+              className={`w-5 h-5 transition-transform duration-300 ${expandedSection === 'upi' ? 'transform rotate-180' : ''}`} 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -137,56 +149,57 @@ function PaymentOptions() {
           </div>
           
           {expandedSection === 'upi' && (
-            <div className="p-4 pt-0 border-t">
-              <div className="bg-blue-50 text-blue-600 text-sm p-2 rounded mb-4">
-                Upto ₹200 cashback
+            <div className="p-4 pt-0 border-t animate-slideDown">
+              <div className="bg-blue-50 text-blue-600 text-sm p-3 rounded mb-4">
+                Upto ₹200 cashback on your first UPI payment
               </div>
               
               <div className="grid grid-cols-3 gap-3">
                 <div 
-                  className="border rounded-md p-3 flex flex-col items-center cursor-pointer hover:border-blue-500"
+                  className="border rounded-md p-3 flex flex-col items-center cursor-pointer hover:border-blue-500 active:bg-gray-50 transition-colors"
                   onClick={() => handleUpiClick('phonePe')}
                 >
                   <img 
                     src={paymentLogos.phonePe}
                     alt="PhonePe"
-                    className="w-8 h-8 mb-1 object-contain"
+                    className="w-10 h-10 mb-1 object-contain rounded-full"
                   />
-                  <span className="text-xs">PhonePe</span>
+                  <span className="text-xs font-medium">PhonePe</span>
                 </div>
                 <div 
-                  className="border rounded-md p-3 flex flex-col items-center cursor-pointer hover:border-blue-500"
+                  className="border rounded-md p-3 flex flex-col items-center cursor-pointer hover:border-blue-500 active:bg-gray-50 transition-colors"
                   onClick={() => handleUpiClick('paytm')}
                 >
                   <img 
                     src={paymentLogos.paytm}
                     alt="Paytm"
-                    className="w-8 h-8 mb-1 object-contain"
+                    className="w-10 h-10 mb-1 object-contain rounded-full"
                   />
-                  <span className="text-xs">Paytm</span>
+                  <span className="text-xs font-medium">Paytm</span>
                 </div>
                 <div 
-                  className="border rounded-md p-3 flex flex-col items-center cursor-pointer hover:border-blue-500"
+                  className="border rounded-md p-3 flex flex-col items-center cursor-pointer hover:border-blue-500 active:bg-gray-50 transition-colors opacity-50"
                   onClick={() => handleUpiClick('googlePay')}
                 >
                   <img 
                     src={paymentLogos.googlePay}
                     alt="Google Pay"
-                    className="w-8 h-8 mb-1 object-contain"
+                    className="w-10 h-10 mb-1 object-contain rounded-full"
                   />
-                  <span className="text-xs">Google Pay</span>
+                  <span className="text-xs font-medium">Google Pay</span>
+                  <span className="text-[10px] text-red-500 mt-1">Down</span>
                 </div>
               </div>
               
               <div className="mt-3">
                 <button 
-                  className="border rounded-md p-3 w-full flex items-center"
+                  className="border rounded-md p-3 w-full flex items-center justify-center hover:bg-gray-50 active:bg-gray-100 transition-colors"
                   onClick={handleOtherUpiClick}
                 >
-                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white mr-2">
-                    <span className="text-xs">U</span>
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white mr-2">
+                    <span className="text-sm font-bold">UPI</span>
                   </div>
-                  <span className="text-sm">Other UPI APP</span>
+                  <span className="text-sm font-medium">Other UPI Apps</span>
                 </button>
               </div>
             </div>
@@ -194,14 +207,14 @@ function PaymentOptions() {
         </div>
         
         {/* Cards Section */}
-        <div className="bg-white rounded-md shadow-sm mb-4">
+        <div className="bg-white rounded-md shadow-sm mb-4 overflow-hidden">
           <div 
-            className="p-4 flex justify-between items-center cursor-pointer"
+            className="p-4 flex justify-between items-center cursor-pointer active:bg-gray-50"
             onClick={() => toggleSection('cards')}
           >
             <h2 className="font-medium">Cards</h2>
             <svg 
-              className={`w-5 h-5 transition-transform ${expandedSection === 'cards' ? 'transform rotate-180' : ''}`} 
+              className={`w-5 h-5 transition-transform duration-300 ${expandedSection === 'cards' ? 'transform rotate-180' : ''}`} 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -212,23 +225,25 @@ function PaymentOptions() {
           
           {expandedSection === 'cards' && (
             <div className="p-4 pt-0 border-t">
-              <div className="flex items-center text-yellow-600">
-                <input type="checkbox" disabled className="mr-2" />
-                <span className="text-sm font-medium">CARD PAYMENT NOT READY NOW!!</span>
+              <div className="flex items-center text-yellow-600 bg-yellow-50 p-3 rounded">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <span className="text-sm font-medium">Card payment is temporarily unavailable</span>
               </div>
             </div>
           )}
         </div>
         
         {/* Wallet Section */}
-        <div className="bg-white rounded-md shadow-sm mb-4">
+        <div className="bg-white rounded-md shadow-sm mb-4 overflow-hidden">
           <div 
-            className="p-4 flex justify-between items-center cursor-pointer"
+            className="p-4 flex justify-between items-center cursor-pointer active:bg-gray-50"
             onClick={() => toggleSection('wallet')}
           >
             <h2 className="font-medium">Wallet</h2>
             <svg 
-              className={`w-5 h-5 transition-transform ${expandedSection === 'wallet' ? 'transform rotate-180' : ''}`} 
+              className={`w-5 h-5 transition-transform duration-300 ${expandedSection === 'wallet' ? 'transform rotate-180' : ''}`} 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -239,8 +254,10 @@ function PaymentOptions() {
           
           {expandedSection === 'wallet' && (
             <div className="p-4 pt-0 border-t">
-              <div className="flex items-center text-gray-600">
-                <input type="checkbox" disabled className="mr-2" />
+              <div className="flex items-center text-gray-600 bg-gray-50 p-3 rounded">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
                 <span className="text-sm">Wallet payment not available</span>
               </div>
             </div>
@@ -248,45 +265,69 @@ function PaymentOptions() {
         </div>
         
         {/* Important Information */}
-        <div className="bg-gray-50 p-4 rounded-md border border-gray-200 mb-4">
-          <h2 className="text-red-500 font-medium mb-3">Important Information About Your Tickets</h2>
+        <div className="bg-white p-4 rounded-md shadow-sm border border-gray-100 mb-4">
+          <h2 className="text-red-500 font-medium mb-3 flex items-center">
+            <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Important Information
+          </h2>
           
           <ul className="text-sm space-y-3">
             <li className="flex">
               <span className="text-red-500 mr-2">•</span>
-              <span>Your e-ticket will be sent to your registered email immediately after successful payment.</span>
+              <span className="text-gray-700">Your e-ticket will be sent to your registered email immediately after successful payment.</span>
             </li>
             <li className="flex">
               <span className="text-red-500 mr-2">•</span>
-              <span>For IPL matches, you can use the e-ticket on your phone for direct stadium entry - no need to print!</span>
+              <span className="text-gray-700">For IPL matches, you can use the e-ticket on your phone for direct stadium entry - no need to print!</span>
             </li>
             <li className="flex">
               <span className="text-red-500 mr-2">•</span>
-              <span>Alternatively, you can print the ticket or show a screenshot at the venue.</span>
+              <span className="text-gray-700">Alternatively, you can print the ticket or show a screenshot at the venue.</span>
             </li>
             <li className="flex">
               <span className="text-red-500 mr-2">•</span>
-              <span>Tickets are <strong>non-refundable</strong> once purchased.</span>
+              <span className="text-gray-700">Tickets are <strong>non-refundable</strong> once purchased.</span>
             </li>
             <li className="flex">
               <span className="text-red-500 mr-2">•</span>
-              <span>Please arrive at least 60 minutes before the match starts to avoid last-minute rush.</span>
+              <span className="text-gray-700">Please arrive at least 60 minutes before the match starts to avoid last-minute rush.</span>
             </li>
             <li className="flex">
               <span className="text-red-500 mr-2">•</span>
-              <span>Carry a <strong>valid photo ID</strong> matching the ticket details for verification.</span>
+              <span className="text-gray-700">Carry a <strong>valid photo ID</strong> matching the ticket details for verification.</span>
             </li>
           </ul>
           
-          <p className="text-xs text-blue-600 mt-3">
-            For any issues, contact our 24/7 support at help@bookmyshow.com
-          </p>
+          <div className="mt-4 p-3 bg-blue-50 rounded">
+            <p className="text-xs text-blue-600">
+              For any issues, contact our 24/7 support at <strong>help@bookmyshow.com</strong>
+            </p>
+          </div>
           
-          <div className="text-center text-xs text-gray-500 mt-4">
-            Account & Terms
+          <div className="text-center text-xs text-gray-500 mt-4 border-t pt-3">
+            By proceeding, you agree to our Terms & Conditions
           </div>
         </div>
       </main>
+
+      {/* Add animation styles */}
+      <style jsx>{`
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-slideDown {
+          animation: slideDown 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 }

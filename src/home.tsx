@@ -212,31 +212,31 @@ function Home() {
     },
     {
       id: "match15",
-      date: "08-Apr-26",
+      date: "09-Apr-26",
       time: "7:30 PM",
       team1: {
         name: "Lucknow Super Giants",
         logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       team2: {
-        name: "Gujarat Titans",
-        logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
+        name: "Kolkata Knight Riders",
+        logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
       },
-      venue: "Ekana Cricket Stadium, Lucknow",
+      venue: "Eden Gardens, Kolkata",
     },
     {
       id: "match16",
-      date: "09-Apr-26",
+      date: "10-Apr-26",
       time: "7:30 PM",
       team1: {
-        name: "Chennai Super Kings",
-        logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+        name: "Rajasthan Royals",
+        logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
       },
       team2: {
-        name: "Delhi Capitals",
-        logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        name: "Royal Challengers Bengaluru",
+        logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
       },
-      venue: "MA Chidambaram Stadium, Chennai",
+      venue: "ACA Stadium, Guwahati",
     },
     {
       id: "match17",

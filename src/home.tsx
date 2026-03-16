@@ -67,7 +67,7 @@ function Home() {
 
 {
       id: "match5",
-      date: "30-Mar-26",
+      date: "01-Apr-26",
       time: "7:30 PM",
       team1: {
         name: "Delhi Capitals",

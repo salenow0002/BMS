@@ -82,7 +82,7 @@ function Home() {
     
     {
       id: "match6",
-      date: "01-Apr-26",
+      date: "02-Apr-26",
       time: "7:30 PM",
       team1: {
         name: "Sunrisers Hyderabad",
@@ -92,31 +92,31 @@ function Home() {
         name: "Kolkata Knight Riders",
         logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
       },
-      venue: "Rajiv Gandhi International Stadium, Hyderabad",
+      venue: "Eden Gardens, Kolkata",
     },
 
     {
       id: "match7",
-      date: "02-Apr-26",
+      date: "03-Apr-26",
       time: "7:30 PM",
       team1: {
         name: "Chennai Super Kings",
         logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
       },
-      team2: {
-        name: "Mumbai Indians",
-        logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+       team2: {
+        name: "Punjab Kings",
+        logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
       },
       venue: "MA Chidambaram Stadium, Chennai",
     },
 
     {
       id: "match8",
-      date: "03-Apr-26",
-      time: "7:30 PM",
+      date: "04-Apr-26",
+      time: "3:30 PM",
       team1: {
-        name: "Royal Challengers Bengaluru",
-        logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
+        name: "Mumbai Indians",
+        logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
       },
       team2: {
         name: "Delhi Capitals",
@@ -128,7 +128,7 @@ function Home() {
     {
       id: "match9",
       date: "04-Apr-26",
-      time: "3:30 PM",
+      time: "7:30 PM",
       team1: {
         name: "Gujarat Titans",
         logo: "https://upload.wikimedia.org/wikipedia/en/0/09/Gujarat_Titans_Logo.svg",
@@ -142,59 +142,59 @@ function Home() {
 
     {
       id: "match10",
-      date: "04-Apr-26",
-      time: "7:30 PM",
+      date: "05-Apr-26",
+      time: "3:30 PM",
       team1: {
         name: "Lucknow Super Giants",
         logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
       },
       team2: {
-        name: "Punjab Kings",
-        logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        name: "Sunrisers Hyderabad",
+        logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
       },
-      venue: "Ekana Cricket Stadium, Lucknow",
+      venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
     },
     {
       id: "match11",
       date: "05-Apr-26",
-      time: "3:30 PM",
+      time: "7:30 PM",
       team1: {
-        name: "Sunrisers Hyderabad",
-        logo: "https://upload.wikimedia.org/wikipedia/en/5/51/Sunrisers_Hyderabad_Logo.svg",
+        name: "Royal Challengers Bengaluru",
+        logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg",
       },
       team2: {
         name: "Chennai Super Kings",
         logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
       },
-      venue: "Rajiv Gandhi International Stadium, Hyderabad",
+      venue: "M. Chinnaswamy Stadium, Bengaluru",
     },
     {
       id: "match12",
-      date: "05-Apr-26",
+      date: "06-Apr-26",
       time: "7:30 PM",
       team1: {
         name: "Kolkata Knight Riders",
         logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
       },
       team2: {
-        name: "Delhi Capitals",
-        logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+        name: "Punjab Kings",
+        logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
       },
       venue: "Eden Gardens, Kolkata",
     },
     {
       id: "match13",
-      date: "06-Apr-26",
+      date: "07-Apr-26",
       time: "7:30 PM",
       team1: {
         name: "Mumbai Indians",
         logo: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
       },
       team2: {
-        name: "Punjab Kings",
-        logo: "https://upload.wikimedia.org/wikipedia/en/d/d4/Punjab_Kings_Logo.svg",
+        name: "Rajasthan Royals",
+        logo: "https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg",
       },
-      venue: "Wankhede Stadium, Mumbai",
+      venue: "Barsapara Stadium, Guwahati",
     },
     {
       id: "match14",

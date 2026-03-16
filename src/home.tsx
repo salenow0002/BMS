@@ -820,7 +820,7 @@ function Home() {
 
           <div className="flex items-center gap-2 mb-2">
             <Calendar className="text-[#eb4e62] w-5 h-5" />
-            <span className="text-[#666666]">Sat 22 March 2026 Onwards</span>
+            <span className="text-[#666666]">Sat 28 March 2026 Onwards</span>
           </div>
 
           <div className="flex items-center gap-2 mb-6">

@@ -47,25 +47,11 @@ function Home() {
         name: "Chennai Super Kings",
         logo: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
       },
-      venue: "Sawai Mansingh Stadium, Jaipur",
+      venue: "Barsapara Stadium, Guwahati",
     },
+    
     {
       id: "match4",
-      date: "30-Mar-26",
-      time: "7:30 PM",
-      team1: {
-        name: "Delhi Capitals",
-        logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
-      },
-      team2: {
-        name: "Lucknow Super Giants",
-        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
-      },
-      venue: "Arun Jaitley Stadium, Delhi",
-    },
-
-    {
-      id: "match5",
       date: "31-Mar-26",
       time: "7:30 PM",
       team1: {
@@ -79,6 +65,21 @@ function Home() {
       venue: "PCA New Cricket Stadium, Tira",
     },
 
+{
+      id: "match5",
+      date: "30-Mar-26",
+      time: "7:30 PM",
+      team1: {
+        name: "Delhi Capitals",
+        logo: "https://upload.wikimedia.org/wikipedia/en/2/2f/Delhi_Capitals.svg",
+      },
+      team2: {
+        name: "Lucknow Super Giants",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/Lucknow_Super_Giants_Logo.svg/5000px-Lucknow_Super_Giants_Logo.svg.png",
+      },
+      venue: "Ekana Cricket Stadium B Ground, Ardonamau",
+    },
+    
     {
       id: "match6",
       date: "01-Apr-26",

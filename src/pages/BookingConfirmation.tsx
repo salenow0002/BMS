@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 
@@ -43,6 +43,11 @@ function BookingConfirmation() {
   const serviceFee = 75;
   const totalAmount = baseAmount + gstAmount + serviceFee;
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -76,8 +81,8 @@ function BookingConfirmation() {
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="pt-14 pb-6 px-4">
+      {/* Main Content - Added pt-16 for proper spacing */}
+      <main className="pt-16 pb-6 px-4">
         <h1 className="text-2xl font-bold text-center my-4">Complete Your Booking</h1>
         
         {/* Booking Summary Section */}
@@ -153,7 +158,7 @@ function BookingConfirmation() {
                 id="fullName"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded-md"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#eb4e62] focus:border-transparent"
                 required
               />
             </div>
@@ -167,7 +172,7 @@ function BookingConfirmation() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded-md"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#eb4e62] focus:border-transparent"
                 required
               />
             </div>
@@ -181,21 +186,23 @@ function BookingConfirmation() {
                 id="phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded-md"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#eb4e62] focus:border-transparent"
                 required
+                pattern="[0-9]{10}"
+                maxLength={10}
               />
               <p className="text-xs text-gray-500 mt-1">Enter a 10-digit mobile number without country code</p>
             </div>
             
             <button
               type="submit"
-              className="w-full bg-[#eb4e62] text-white py-3 rounded-md font-medium"
+              className="w-full bg-[#eb4e62] text-white py-3 rounded-md font-medium hover:bg-[#d43b4f] transition-colors"
             >
               Proceed To Pay ₹{totalAmount}
             </button>
             
             <p className="text-xs text-center text-gray-500 mt-4">
-              By proceeding, you agree to our <a href="#" className="text-blue-600">Terms & Conditions</a>
+              By proceeding, you agree to our <a href="#" className="text-blue-600 underline">Terms & Conditions</a>
             </p>
           </form>
         </div>
